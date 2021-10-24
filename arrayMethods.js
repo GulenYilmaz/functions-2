@@ -18,9 +18,12 @@ const mixedNumbers = [6,3,1,7,5,2,6,8,9,4,2,7,9,3,1,8,4,3];
 */
 
 // CODE HERE
-const evenNumbers // = mixedNumbers.filter(/* Provide Your Callback Here */)
+const evenNumbers = mixedNumbers.filter(function(element)
+  {   return element % 2 === 0 })  
 
-
+const evenNumberss = mixedNumbers.filter(element => element % 2 === 0) 
+console.log(evenNumbers) 
+console.log(mixedNumbers)
 
 ////////// PROBLEM 2 //////////
 
@@ -39,9 +42,14 @@ const prices = [15.00, 23.00, 78.00, 34.00, 12.00, 86.00, 12.00, 79.00, 32.00];
 */
 
 // CODE HERE
-const postTaxPrices // = prices.map(/* Provide Your Callback Here );
+const postTaxPricesAF = prices.map(element => element *=1.07);
+console.log(postTaxPricesAF)
 
-
+const postTaxPrices =prices.map(function(element){
+  return element *=1.07;
+  
+})
+console.log(postTaxPrices)
 
 ////////// PROBLEM 3 //////////
 
@@ -57,9 +65,13 @@ const populations = [8175133, 3792621, 2695598, 2100263];
 */
 
 // CODE HERE
-const totalPopulation //  = populations.reduce(/* Provide Your Callback Here */)
+const totalPopulation   = populations.reduce((acc, curr) => acc + curr)
+console.log(totalPopulation)
 
-
+const totalPopu = populations.reduce(function(a,c){
+  return a+c
+})
+console.log(runningTotal)
 
 ////////// PROBLEM 4 //////////
 
@@ -82,17 +94,31 @@ const monstersInYourPocket = [{"monster":"Bulbabunny","CP":156},{"monster":"Bulb
 */
 
 // CODE HERE
-const myStrongest // = monstersInYourPocket.filter(/* Provide Your Callback Here */)
+const myStrongest  = monstersInYourPocket.filter(element =>element.CP > 200)
+console.log (myStrongest)
+
+const myStrongestt = monstersInYourPocket.filter(function(element){
+  return element.CP>200
+})
+console.log(myStrongestt)
+
 
 
 
 ////////// PROBLEM 5 //////////
 
 // Do not edit code below.
-const orders = [{"price":15,"tax":0.09},{"price":42,"tax":0.07},{"price":56,"tax":0.11},
-{"price":80,"tax":0.11},{"price":69,"tax":0.06},{"price":68,"tax":0.14},
-{"price":72,"tax":0.14},{"price":51,"tax":0.09},{"price":89,"tax":0.15},
-{"price":48,"tax":0.13}];
+const orders = [
+{"price":15,"tax":0.09},
+{"price":42,"tax":0.07},
+{"price":56,"tax":0.11},
+{"price":80,"tax":0.11},
+{"price":69,"tax":0.06},
+{"price":68,"tax":0.14},
+{"price":72,"tax":0.14},
+{"price":51,"tax":0.09},
+{"price":89,"tax":0.15},
+{"price":48,"tax":0.13}    ];
 // Do not edit code above.
 
 /*
@@ -100,8 +126,12 @@ const orders = [{"price":15,"tax":0.09},{"price":42,"tax":0.07},{"price":56,"tax
 */
 
 // CODE HERE
+const totalOrder=orders.map(function(elementPrice){
+  return elementPrice +=elementPrice.price*elementPrice.tax
+})
+console.log(totalOrder)
 
-
+const total= orders.map(element => element.price += element.price * element.tax)
 
 ////////// PROBLEM 6 //////////
 
@@ -120,3 +150,8 @@ const purchases = [{"owner":"Barry","price":103},{"owner":"Bob","price":75},
 */
 
 // CODE HERE
+const sumOfBobsTotal =  purchases.filter(function(element){
+  return element.owner ==="Bob"
+}).reduce(function(a,c){
+  return a+c.price
+},0)// 0 
